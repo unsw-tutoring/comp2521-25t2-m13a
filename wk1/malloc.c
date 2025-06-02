@@ -3,9 +3,9 @@
 #include <string.h>
 
 struct student {
-    int id;
-    char name[15];
-    double wam;
+    int id;         // 4, 4 padding
+    char name[15];  // 15, 1 padding
+    double wam;     // 8
 };
 
 int main(void) {
@@ -30,10 +30,29 @@ int main(void) {
 
     // TODO: malloc a struct student and give them an id, name, and wam
     // hint: use strcpy
+    struct student *s1 = malloc(sizeof(struct student));
+    s1->id = 1;
+    (*s1).id = 1;
+    strcpy(s1->name, "Josh");
+    s1->wam = 100;
 
     // TODO: malloc an array of 10 struct students
+    struct student *array = malloc(10 * sizeof(struct student));
+    array[0].id = 1;
+    array[9].wam = 38;
+    // array->id;
+    // *(array + 0);
 
     // TODO: malloc an array of 5 pointers to struct students
+    struct student **array2 = malloc(5 * sizeof(struct student *));
+    array2[0] = malloc(sizeof(struct student));
+    array2[0]->id = 1;
 
     // TODO: malloc a 2D array of struct students with 5 'rows' and 10 'columns'
+    struct student **array3 = malloc(5 * sizeof(struct student *));
+    for (int i = 0; i < 5; i++) {
+        array3[i] = malloc(10 * sizeof(struct student));
+    }
+
+    array3[1][2];
 }

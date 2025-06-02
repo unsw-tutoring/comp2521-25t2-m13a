@@ -11,8 +11,12 @@ int listLength(struct node *list);
 
 // use a while loop
 int listLength(struct node *list) {
-    // TODO
-    return 0;
+    int length = 0;
+    while (list != NULL) {
+        length++;
+        list = list->next;
+    }
+    return length;
 }
 
 // use a for loop
