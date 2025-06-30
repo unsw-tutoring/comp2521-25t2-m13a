@@ -1,14 +1,23 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/**
+ * 1. repeated code / helper functions
+ * 2. casing -- PascalCase, camelCase
+ * 3. static helper function + function order
+ * 4. spacing? variable names? 
+ * 5. commenting -- a) comment above every function to describe what it does; b) a little tiny bit of general comments
+ * 6. constants
+ */
+
 struct Node {
     int data;
     struct Node *next;
 };
 
-void freeList(struct Node *head) {
+static void freeList(struct Node *head) {
 	if (head == NULL) {
-	return;
+	    return;
 	}
 	// Frees the list by iterating through the list, using a temporary element and freeing the elements by using free (hopefully this comment is useful and helps out)
 	struct Node *Temp = head;

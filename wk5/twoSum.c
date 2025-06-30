@@ -21,6 +21,16 @@ bool hasTwoSum(int *arr, int n, int sum) {
 
 // use a binary search tree
 bool hasTwoSum(int *arr, int n, int sum) {
-    // TODO
+    BSTree bst = BSTNew();
+
+    for (int i = 0; i < n; i++) {  // runs n times
+        int other = sum - arr[i];
+        if (BSTSearch(bst, other)) {  // log n
+            return true;
+        }
+
+        BSTInsert(bst, arr[i]);  // log n
+    }
+
     return false;
 }
